@@ -2,16 +2,20 @@ import math
 lastx = 0.0
 lasty = 5.0
 dist = 0
+lastx = 0
+area = 0
 
-prec = 3000000
+prec = 10000000
 for i in range(prec * 5):
     x = i / prec
     y = math.sqrt(25-math.pow(x,2))
-    dist += math.sqrt(math.pow((x-lastx),2) + math.pow((y-lasty),2))
+    area += (x - lastx) * y
     lastx = x
-    lasty = y
 
-dist += math.sqrt(math.pow((5-lastx),2) + math.pow((0-lasty),2))
+area += (5 - lastx)
+
     
-pi = (dist * 4) / 10
+pi = (4 * area) / 25
 print(pi)
+
+
